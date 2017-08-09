@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Shortest Path Algorithms</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+</head>
+<body>
+    <center><h1>Shortest Path Algorithms</h1></center>
+	
+	
+<div id="options">
+	Size (1- 50):
+<input size="5" value="10" id="inputSize">
+Density (0- 100):
+<input size="5" value="15" id="inputDensity">&nbsp;
+<button onClick="randomGraphPos()">Random graph(Positive)</button>&nbsp;
+<button onClick="randomGraphNeg()">Random graph(Positive&Negative)</button>&nbsp;
+<button onClick = clearAll();>Clear all</button>
+<br>
+<br>
+Algorithm:
+<select id="algorithm">
+  <option value="Choose an algorithm" selected>Choose an algorithm</option>
+  <option value="Dijkstra">Dijkstra</option>
+  <option value="Bellman-Ford">Bellman-Ford</option>
+  <option value="Johnson">Johnson</option>
+</select>
+Type:
+<select id="type" onchange="changeType()">
+  <option value="directed">Directed Graph</option>
+  <option value="digraph">digraph</option>
+</select>
+&nbsp;
+Speed:
+<button onClick="speedUp()">+</button>
+<input size=2 value="30" id="speed" disabled>
+<button onClick="slowDown()">-</button>
+&nbsp;
+<button onClick = play();>Play</button>
+<button onClick = clearAlgOnClick();>Clear algorithm</button>
+</div>
+	<div id="choosenAlgo">Choose an algorithm...</div>
+	
+	
+    <div  id="contentContainer">
+        <canvas id="canvas" height="450" width="850"></canvas>
+			<div id ="vertexMenu">
+<button class="vertexMenuButton" onClick = moveVertex(); > Move </button> <br>
+<button  class="vertexMenuButton" onClick = removeVertex(); > Delete </button> <br>
+<button  class="vertexMenuButton" onClick = chooseS(); > Source </button> <br>
+<button  class="vertexMenuButton" onClick = cancel(); > Cancel </button> <br>
+</div>
+    </div>
+    <div id="queueBlock">
+		<span id="queueLeft">Queue:</span>
+        <span id="queueRight"></span>
+    </div>
+	<div id="timeBlock">
+		DIJKTRA TIME:
+		<input size=2 value="0" id="Dijkstrat" disabled>
+		&nbsp;&nbsp;&nbsp;
+		BELLMAN-FORD TIME:
+		<input size=2 value="0" id="BellFot" disabled>
+		&nbsp;&nbsp;&nbsp;
+		JOHNSON TIME:
+		<input size=2 value="0" id="Johnsont" disabled>
+	</div> 
+
+
+    <script type="text/javascript" src="javas.js"></script> 
+</body>
+</html>
