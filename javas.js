@@ -497,7 +497,7 @@ graph.prototype.Dijkstra = function(){
 				let cloneHeap,cloneG;
 				for(i=0;i<this.edges.length;i++){
 						if(this.edges[i].weight < 0){ // check if weights are legal
-						document.querySelector("#choosenAlgo").innerHTML+=`<br><span style="color: red"> Weights should be non negative</span>`;
+						document.querySelector("#choosenAlgo").innerHTML+='<br><span style="color: red"> Weights should be non negative</span>';
 						clearAlg(); //restart
 						return;
 						}
@@ -581,7 +581,7 @@ graph.prototype.BellmanFord = function(){
 				
 				
 				if(document.querySelector("#type").value == "digraph"){
-						document.querySelector("#choosenAlgo").innerHTML+=`<br><span style="color: red"> Graph should be directed!</span>`;
+						document.querySelector("#choosenAlgo").innerHTML+='<br><span style="color: red"> Graph should be directed!</span>';
 						clearAlg(); //restart
 						return;
 				}
@@ -681,7 +681,7 @@ graph.prototype.Johnson = function(){
 				let foundSource=false;
 				let sx,sy,endflag=0;
 				if(document.querySelector("#type").value == "digraph"){
-						document.querySelector("#choosenAlgo").innerHTML+=`<br><span style="color: red"> Graph should be directed!</span>`;
+						document.querySelector("#choosenAlgo").innerHTML+='<br><span style="color: red"> Graph should be directed!</span>';
 						clearAlg(); //restart
 						return;
 				}
@@ -1239,23 +1239,23 @@ function playAnimation(){ // NeedToChange Itay
 		document.getElementById("Johnsont").value=mygraph.getJohnsontime();
 	}
 	else if(alg == 1){ // BellmanFord
-		if(document.querySelector("#BellmanFordProgress") == null) document.querySelector("#choosenAlgo").innerHTML+=`<br><span id="BellmanFordProgress"></span>`;
+		if(document.querySelector("#BellmanFordProgress") == null) document.querySelector("#choosenAlgo").innerHTML+='<br><span id="BellmanFordProgress"></span>';
 			if (!myAnimation.BellmanFord_trip.isEmpty()){		
 			temp1 = myAnimation.BellmanFord_trip.dequeue();
 			clearInputs(mygraph);
 			context.clearRect(0, 0, canvas.width, canvas.height);
 			temp1.graph.draw();
-			document.querySelector("#BellmanFordProgress").innerHTML =`Algorithm Progress: ${temp1.graph.getBellmanFordtime()}/${mygraph.getBellmanFordtime()}`;
+			document.querySelector("#BellmanFordProgress").innerHTML ='Algorithm Progress: '+temp1.graph.getBellmanFordtime()+'/'+mygraph.getBellmanFordtime();
 			document.getElementById("BellFot").value=temp1.graph.getBellmanFordtime();
 			if(temp1.negative == true){
-						document.querySelector("#choosenAlgo").innerHTML+=`<br><span style="color: red"> Graph illegal! it has negative circles</span>`;
+						document.querySelector("#choosenAlgo").innerHTML+='<br><span style="color: red"> Graph illegal! it has negative circles</span>';
 						clearTimeout(myAnimation.BellmanFord_time);
 						return;	
 				}						
 			}
 	}
 		else if(alg == 2){ // Johnson
-				if(document.querySelector("#JohnsonProgress") == null) document.querySelector("#choosenAlgo").innerHTML+=`<br><span id="JohnsonProgress"></span>`;
+				if(document.querySelector("#JohnsonProgress") == null) document.querySelector("#choosenAlgo").innerHTML+='<br><span id="JohnsonProgress"></span>';
 					if (!myAnimation.Johnson_trip.isEmpty()){		
 						temp1 = myAnimation.Johnson_trip.dequeue();
 								if(temp1.start == null){
@@ -1264,10 +1264,10 @@ function playAnimation(){ // NeedToChange Itay
 													context.clearRect(0, 0, canvas.width, canvas.height);
 													temp1.graph.draw();
 													document.getElementById("Johnsont").value=temp1.graph.getJohnsontime();
-													document.querySelector("#JohnsonProgress").innerHTML =`Algorithm Progress: ${temp1.graph.getJohnsontime()}/${mygraph.getJohnsontime()}`;
+													document.querySelector("#JohnsonProgress").innerHTML ='Algorithm Progress: '+temp1.graph.getJohnsontime()+'/'+mygraph.getJohnsontime();
 
 													if(temp1.negative == true){
-																document.querySelector("#choosenAlgo").innerHTML+=`<br><span style="color: red"> Graph illegal! it has negative circles</span>`;
+																document.querySelector("#choosenAlgo").innerHTML+='<br><span style="color: red"> Graph illegal! it has negative circles</span>';
 																clearTimeout(myAnimation.Johnson_time);
 																return;	
 														}	
@@ -1312,7 +1312,7 @@ function playAnimation(){ // NeedToChange Itay
 							context.clearRect(0, 0, canvas.width, canvas.height);
 							temp1.graph.draw();
 							temp1.start.Johnson_color = "white"; 
-							document.querySelector("#JohnsonProgress").innerHTML =`Algorithm Progress: ${temp1.graph.getJohnsontime()}/${mygraph.getJohnsontime()}`;
+							document.querySelector("#JohnsonProgress").innerHTML ='Algorithm Progress: '+temp1.graph.getJohnsontime()+'/'+mygraph.getJohnsontime();
 							document.getElementById("Johnsont").value=temp1.graph.getJohnsontime();
 								}
 	}
@@ -1328,7 +1328,7 @@ function playAnimation(){ // NeedToChange Itay
 	if(alg == 2){
 		drawLenMat(temp1.matrix);
 		document.getElementById("Johnsont").value=temp1.graph.getJohnsontime();
-		document.querySelector("#JohnsonProgress").innerHTML =`Algorithm Progress: ${temp1.graph.getJohnsontime()}/${mygraph.getJohnsontime()}`;
+		document.querySelector("#JohnsonProgress").innerHTML ='Algorithm Progress: '+temp1.graph.getJohnsontime()+'/'+mygraph.getJohnsontime();
 	}
 	clearInputs(mygraph);
 	context.clearRect(0, 0, canvas.width, canvas.height);
